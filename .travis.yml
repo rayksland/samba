@@ -1,0 +1,8 @@
+language: c
+script: ./configure.developer && make check
+compiler:
+  - clang
+  - gcc
+install:
+  - sudo apt-get update
+  - sudo apt-get install -qq bison comerr-dev docbook-xml docbook-xsl flex libacl1-dev libaio-dev libattr1-dev libblkid-dev libbsd-dev libcap-dev libcups2-dev libgnutls-dev  libldap2-dev libncurses5-dev libpam0g-dev libparse-yapp-perl libpopt-dev libreadline-dev libsubunit-dev perl perl-modules pkg-config python-all-dev python-dnspython python-testtools subunit xsltproc zlib1g-dev
