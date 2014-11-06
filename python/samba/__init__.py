@@ -323,6 +323,7 @@ def import_bundled_package(modulename, location):
     :param modulename: Module name to import
     :param location: Location to add to sys.path (can be relative to
         ${srcdir}/lib)
+    :return: The module object
     """
     if in_source_tree():
         sys.path.insert(0, os.path.join(source_tree_topdir(), "lib", location))
@@ -330,19 +331,29 @@ def import_bundled_package(modulename, location):
     else:
         sys.modules[modulename] = __import__(
             "samba.external.%s" % modulename, fromlist=["samba.external"])
+    return sys.modules[modulename]
 
 
-def ensure_external_module(modulename, location):
+def ensure_external_module(modulename, location, check=lambda mod: True):
     """Add a location to sys.path if an external dependency can't be found.
 
     :param modulename: Module name to import
     :param location: Location to add to sys.path (can be relative to
         ${srcdir}/lib)
+    :param check: Optional callback to check the module
+    :return: The module object
     """
     try:
-        __import__(modulename)
+        mod = __import__(modulename)
     except ImportError:
-        import_bundled_package(modulename, location)
+        mod = import_bundled_package(modulename, location)
+    else:
+        if not check(mod):
+            mod = import_bundled_package(modulename, location)
+    if not check(mod):
+        raise ImportError("Unable to find checked system or bundled %s" %
+                          modulename)
+    return mod
 
 
 def dn_from_dns_name(dnsdomain):
