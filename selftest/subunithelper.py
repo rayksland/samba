@@ -17,6 +17,12 @@
 
 __all__ = ['parse_results']
 
+import samba
+samba.ensure_external_module("mimeparse", "mimeparse")
+samba.ensure_external_module("extras", "extras")
+samba.ensure_external_module("testtools", "testtools")
+samba.ensure_external_module("subunit", "subunit/python")
+
 import re
 import sys
 import subunit
