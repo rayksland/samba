@@ -21,7 +21,14 @@ import samba
 samba.ensure_external_module("mimeparse", "mimeparse")
 samba.ensure_external_module("extras", "extras")
 samba.ensure_external_module("testtools", "testtools")
-samba.ensure_external_module("subunit", "subunit/python")
+def check_subunit(mod):
+    try:
+        __import__("subunit.run.TestProgram")
+    except ImportError:
+        return False
+    else:
+        return True
+samba.ensure_external_module("subunit", "subunit/python", check_subunit)
 
 import re
 import sys

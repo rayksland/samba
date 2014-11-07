@@ -38,6 +38,13 @@ import optparse
 import samba
 import sys
 import samba.tests
+def check_subunit(mod):
+    try:
+        from subunit.run import TestProgram
+    except ImportError:
+        return False
+    else:
+        return True
 samba.ensure_external_module("subunit", "subunit/python")
 import subunit.run
 
@@ -54,7 +61,7 @@ class SubunitOptions(optparse.OptionGroup):
                   help='Specify a filename containing the test ids to use.')
 
 
-class TestProgram(subunit.run.TestProgram):
+class TestProgram(subunit.run.SubunitTestProgram):
 
     def __init__(self, module=None, args=None, opts=None):
         if args is None:

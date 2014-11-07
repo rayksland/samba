@@ -33,7 +33,7 @@ def source_tree_topdir():
     for p in paths:
         topdir = os.path.normpath(os.path.join(os.path.dirname(__file__), p))
         if os.path.exists(os.path.join(topdir, 'source4')):
-            return topdir
+            return os.path.abspath(topdir)
     raise RuntimeError("unable to find top level source directory")
 
 
