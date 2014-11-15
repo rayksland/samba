@@ -7,7 +7,6 @@ external_libs = {
     "subunit": "subunit/python/subunit",
     "testtools": "testtools/testtools",
     "extras": "extras/extras",
-    "mimeparse": "mimeparse/mimeparse",
     }
 
 list = []

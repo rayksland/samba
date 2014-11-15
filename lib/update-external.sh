@@ -49,6 +49,6 @@ rsync -avz --delete "$WORKDIR/extras/" "$LIBDIR/extras/"
 echo "Updating mimeparse..."
 svn co http://mimeparse.googlecode.com/svn/trunk/ "$WORKDIR/mimeparse"
 rm -rf "$WORKDIR/mimeparse/.svn"
-rsync -avz --delete "$WORKDIR/mimeparse/" "$LIBDIR/mimeparse/"
+rsync -avz --delete "$WORKDIR/mimeparse/" "$THIRD_PARTY_DIR/mimeparse/"
 
 rm -rf "$WORKDIR"
