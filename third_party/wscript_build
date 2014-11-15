@@ -6,6 +6,7 @@ import os
 external_libs = {
     "dns.resolver": "dnspython/dns",
     "mimeparse": "mimeparse",
+    "extras": "python-extras/extras",
     }
 
 list = []

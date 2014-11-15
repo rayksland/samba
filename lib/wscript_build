@@ -6,7 +6,6 @@ import os, Options
 external_libs = {
     "subunit": "subunit/python/subunit",
     "testtools": "testtools/testtools",
-    "extras": "extras/extras",
     }
 
 list = []

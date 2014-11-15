@@ -44,7 +44,7 @@ rsync -avz --delete "$WORKDIR/extras/" "$LIBDIR/extras/"
 echo "Updating extra..."
 git clone git://github.com/testing-cabal/extras "$WORKDIR/extras"
 rm -rf "$WORKDIR/extras/.git"
-rsync -avz --delete "$WORKDIR/extras/" "$LIBDIR/extras/"
+rsync -avz --delete "$WORKDIR/extras/" "$THIRD_PARTY_DIR/python-extras/"
 
 echo "Updating mimeparse..."
 svn co http://mimeparse.googlecode.com/svn/trunk/ "$WORKDIR/mimeparse"

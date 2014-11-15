@@ -347,7 +347,7 @@ def ensure_third_party_module(modulename, location):
         ${srcdir}/third_party)
     """
     try:
-        __import__(modulename)
+        mod = __import__(modulename)
     except ImportError:
         import_bundled_package(modulename, location,
             source_tree_container="third_party",
