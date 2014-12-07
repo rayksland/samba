@@ -1,0 +1,6 @@
+#!/usr/bin/python
+
+if conf.CHECK_ZLIB():
+    conf.define('USING_SYSTEM_ZLIB', 1)
+
+conf.RECURSE('popt')

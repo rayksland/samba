@@ -1,3 +1,6 @@
 [submodule "third_party/dnspython"]
 	path = third_party/dnspython
 	url = https://github.com/rthalley/dnspython.git
+[submodule "third_party/zlib"]
+	path = third_party/zlib
+	url = https://github.com/madler/zlib
