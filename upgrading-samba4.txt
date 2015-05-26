@@ -5,7 +5,7 @@ Upgrading from an older samba4 installation.
 * Stop any samba process
 * Backup your samba4 provision:
   go into the directory where your samba4 provision is stored (/usr/local/samba by default)
-  do tar cf $HOME/backup.tar private etc var sysvol
+  do tar cf $HOME/backup.tar private etc var
 * do make install
 * run 'samba-tool dbcheck'
 
